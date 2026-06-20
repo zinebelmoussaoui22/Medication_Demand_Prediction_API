@@ -9,6 +9,7 @@ from sklearn.metrics import mean_absolute_error
 
 # 1. Chargement des données
 df_source = pd.read_csv('salesdaily.csv')
+df_source = df_source.ffill()
 
 categories = ['M01AB', 'M01AE', 'N02BA', 'N02BE', 'N05B', 'N05C', 'R03', 'R06']
 resultats = []
