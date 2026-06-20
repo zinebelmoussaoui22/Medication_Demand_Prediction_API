@@ -14,10 +14,10 @@ st.write("Cet outil utilise le modèle **Meta Prophet** pour anticiper intellige
 @st.cache_data
 def load_clean_data():
     df = pd.read_csv('salesdaily.csv')
+    df = df.ffill()
     df['datum'] = pd.to_datetime(df['datum'])
     df = df.sort_values('datum').reset_index(drop=True)
     return df
-
 df_source = load_clean_data()
 
 dict_medicaments = {
